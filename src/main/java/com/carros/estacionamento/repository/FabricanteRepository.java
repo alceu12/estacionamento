@@ -8,4 +8,5 @@ import com.carros.estacionamento.entity.Fabricante;
 @Repository
 public interface FabricanteRepository extends JpaRepository<Fabricante, Long> {
 
+    
 }   

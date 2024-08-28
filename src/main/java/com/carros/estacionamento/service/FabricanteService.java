@@ -1,5 +1,8 @@
 package com.carros.estacionamento.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,17 @@ public class FabricanteService {
     public FabricanteDTO criarFabricante(FabricanteDTO fabricanteDTO) {
         Fabricante fabricante = FabricanteMapper.toEntity(fabricanteDTO);
         fabricante = fabricanteRepository.save(fabricante);
-        return fabricanteDTO;
+        return FabricanteMapper.toDTO(fabricante);
     }
+
+    public List<FabricanteDTO> listarFabricantes() {
+        List<Fabricante> fabricantes = fabricanteRepository.findAll();
+        List<FabricanteDTO> fabricantesDTO = new ArrayList<>();
+        for (Fabricante fabricante : fabricantes) {
+            fabricantesDTO.add(FabricanteMapper.toDTO(fabricante));
+
+        }
+        return fabricantesDTO;
+    }
+
 }

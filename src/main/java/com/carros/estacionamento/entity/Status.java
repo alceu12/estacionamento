@@ -17,6 +17,7 @@ public class Status {
     private Long id;
 
     private String nome;
+    private int codigo;
 
     public Status() {
     }

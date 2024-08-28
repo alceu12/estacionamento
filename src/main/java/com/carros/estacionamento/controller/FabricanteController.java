@@ -1,6 +1,7 @@
 package com.carros.estacionamento.controller;
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,4 +22,10 @@ public class FabricanteController {
         return fabricanteService.criarFabricante(fabricanteDTO);
 
     }
+
+    @GetMapping
+    public List<FabricanteDTO> listarFabricantes() {
+        return fabricanteService.listarFabricantes();
+    }
+
 }

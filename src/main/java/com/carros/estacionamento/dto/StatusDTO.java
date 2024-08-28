@@ -9,4 +9,9 @@ public class StatusDTO {
 
     private Long id;
     private String nome;
+    private int codigo;
+
+    public StatusDTO() {
+
+    }
 }

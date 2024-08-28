@@ -20,6 +20,7 @@ public class Fabricante {
     private Long id;
 
     private String nome;
+    private String nacionalidade;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "status_id", referencedColumnName = "id")

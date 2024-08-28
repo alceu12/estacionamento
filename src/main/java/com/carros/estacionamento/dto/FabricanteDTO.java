@@ -10,6 +10,7 @@ public class FabricanteDTO {
 
     private Long id;
     private String nome;
+    private String nacionalidade;
     private StatusDTO statusDTO;
 
     public FabricanteDTO() {
