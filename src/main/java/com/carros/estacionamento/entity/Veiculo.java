@@ -9,15 +9,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Fabricante {
+public class Veiculo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
-    private String nacionalidade;
+    private String placa;
+    private String cor;
+    private String ano;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_status", referencedColumnName = "id")
-    private Status status;  // Associação com Status
+    @JoinColumn(name = "id_modelo", referencedColumnName = "id")
+    private Modelo modelo;
 }

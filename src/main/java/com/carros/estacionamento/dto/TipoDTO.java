@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StatusDTO {
+public class TipoDTO {
     private Long id;
     private String nome;
-    private int codigo;
 }
