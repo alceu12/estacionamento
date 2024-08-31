@@ -12,5 +12,6 @@ public class VeiculoDTO {
     private String placa;
     private String cor;
     private String ano;
-    private ModeloDTO modeloDTO;  
+    private ModeloDTO modeloDTO;
+
 }

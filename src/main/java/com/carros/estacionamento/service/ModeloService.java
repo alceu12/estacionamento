@@ -1,7 +1,10 @@
 package com.carros.estacionamento.service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import com.carros.estacionamento.util.StatusMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,5 +52,26 @@ public class ModeloService {
         }
         modelo = modeloRepository.save(modelo);
         return ModeloMapper.toDTO(modelo);
+    }
+
+    public List<ModeloDTO> listarModelos() {
+        return modeloRepository.findAll().stream()
+                .map(ModeloMapper::toDTO)
+                .collect(Collectors.toList());
+    }
+
+    public ModeloDTO buscarModeloPorId(Long id) {
+        return modeloRepository.findById(id)
+                .map(ModeloMapper::toDTO)
+                .orElseThrow(() -> new RuntimeException("Modelo não encontrado"));
+    }
+
+    public ModeloDTO atualizarModelo(Long id, ModeloDTO modeloDTO) {
+        Modelo modeloExistente = modeloRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Modelo não encontrado"));
+
+        modeloExistente.setNome(modeloDTO.getNome());
+        Modelo modeloAtualizado = modeloRepository.save(modeloExistente);
+        return ModeloMapper.toDTO(modeloAtualizado);
     }
 }
